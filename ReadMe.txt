@@ -1,0 +1,1 @@
+Mobilna aplikacija za igranje kviza vezanog za grad. Korisnik može da dodaje kviz pitanja na mapi, a zatim drugi korisnici mogu da odgovaraju na pitanja i sakupljaju bodove. Aplikacija ima mogućnost pretraživanja pitanja po kategoriji i radijusu u odnosu na trenutnu lokaciju korisnika. Takođe, prikazuje javnu listu korisnika rangiranu na osnovu broja bodova sakupljenih.
