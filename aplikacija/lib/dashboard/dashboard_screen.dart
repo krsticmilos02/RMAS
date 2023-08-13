@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_city_rmas/authentication_repository/authentication_repository.dart';
+import 'package:quiz_city_rmas/repository/authentication_repository/authentication_repository.dart';
+import 'package:get/get.dart';
+import 'package:quiz_city_rmas/dashboard/profile/profile_screen.dart';
 
 class DashboardTest extends StatelessWidget {
   const DashboardTest({super.key});
@@ -26,6 +28,15 @@ class DashboardTest extends StatelessWidget {
                       AuthenticationRepository.instance.logout();
                     },
                     child: Text('Sign out'),
+                  ),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                        Get.to(ProfileScreen());
+                    },
+                    child: Text('Go to profile'),
                   ),
                 ),
               ],

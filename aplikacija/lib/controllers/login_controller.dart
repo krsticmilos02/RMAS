@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quiz_city_rmas/authentication_repository/authentication_repository.dart';
+import 'package:quiz_city_rmas/repository/authentication_repository/authentication_repository.dart';
 
 class LoginController extends GetxController {
   static LoginController get instance => Get.find();
