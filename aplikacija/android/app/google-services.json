@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "457548585884",
+    "project_id": "quizcity-rmas",
+    "storage_bucket": "quizcity-rmas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457548585884:android:88139f14e3a6e01506c659",
+        "android_client_info": {
+          "package_name": "com.example.quiz_city_rmas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457548585884-e3iknjkuj0jj157ppba3itdrfme3pbj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC64fu_0cpeP8y7XE52D4btXPxu9BF-NXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457548585884-e3iknjkuj0jj157ppba3itdrfme3pbj6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
