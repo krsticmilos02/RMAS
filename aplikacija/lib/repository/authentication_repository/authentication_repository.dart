@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:quiz_city_rmas/authentication_repository/exceptions/register_email_password_failure.dart';
+import 'package:quiz_city_rmas/repository/authentication_repository/exceptions/register_email_password_failure.dart';
 import 'package:quiz_city_rmas/screens/welcome_screen_widget.dart';
 
-import '../dashboard/dashboard_screen.dart';
-import '../main.dart';
+import 'package:quiz_city_rmas/dashboard/dashboard_screen.dart';
 
 class AuthenticationRepository extends GetxController{
   static AuthenticationRepository get instance => Get.find();

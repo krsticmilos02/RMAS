@@ -3,6 +3,9 @@
         android:label="quiz_city_rmas"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC64fu_0cpeP8y7XE52D4btXPxu9BF-NXk" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
