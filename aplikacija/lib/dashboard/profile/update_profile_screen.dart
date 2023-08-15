@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:quiz_city_rmas/controllers/profile_controller.dart';
 
 import '../../authentication/models/user_model.dart';
@@ -10,6 +13,9 @@ class UpdateProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ProfileController());
+    final ImagePicker _picker = ImagePicker();
+    var image;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -28,7 +34,13 @@ class UpdateProfileScreen extends StatelessWidget {
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 if (snapshot.hasData) {
-                  UserModel userData = snapshot.data as UserModel;
+                  UserModel initUserData = snapshot.data as UserModel;
+
+                  final fullName = TextEditingController(text: initUserData.fullName);
+                  final email = TextEditingController(text: initUserData.email);
+                  final phoneNo = TextEditingController(text: initUserData.phoneNo);
+                  final password = TextEditingController(text: initUserData.password);
+
                   return Column(
                     children: [
                       Stack(
@@ -58,7 +70,11 @@ class UpdateProfileScreen extends StatelessWidget {
                                   color: Colors.black,
                                   size: 20,
                                 ),
-                                onPressed: () {},
+                                onPressed: () async {
+                                  image = await _picker.pickImage(source: ImageSource.gallery);
+
+                                  print("success");
+                                },
                               ),
                             ),
                           )
@@ -71,7 +87,7 @@ class UpdateProfileScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             TextFormField(
-                              initialValue: userData.fullName,
+                              controller: fullName,
                               decoration: InputDecoration(
                                 label: Text('Full name'),
                                 hintText: 'Enter your full name',
@@ -83,7 +99,7 @@ class UpdateProfileScreen extends StatelessWidget {
                               height: 10,
                             ),
                             TextFormField(
-                              initialValue: userData.email,
+                              controller: email,
                               decoration: InputDecoration(
                                 label: Text('E-mail'),
                                 hintText: 'Enter your E-mail',
@@ -95,7 +111,7 @@ class UpdateProfileScreen extends StatelessWidget {
                               height: 10,
                             ),
                             TextFormField(
-                              initialValue: userData.phoneNo,
+                              controller: phoneNo,
                               decoration: InputDecoration(
                                 label: Text('Phone Number'),
                                 hintText: 'Enter your phone number',
@@ -107,7 +123,7 @@ class UpdateProfileScreen extends StatelessWidget {
                               height: 10,
                             ),
                             TextFormField(
-                              initialValue: userData.password,
+                              controller: password,
                               decoration: InputDecoration(
                                 label: Text('Password'),
                                 hintText: 'Enter your password',
@@ -121,8 +137,18 @@ class UpdateProfileScreen extends StatelessWidget {
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: () =>
-                                    Get.to(() => const UpdateProfileScreen()),
+                                onPressed: () async {
+                                  final userData = UserModel(
+                                      id: initUserData.id,
+                                      email: email.text.trim(),
+                                      username: initUserData.username,
+                                      fullName: fullName.text.trim(),
+                                      password: password.text.trim(),
+                                      phoneNo: phoneNo.text.trim(),
+                                      profilePic: initUserData.profilePic);
+
+                                  await controller.updateRecord(userData);
+                                },
                                 child: const Text('Save changes'),
                                 style: ElevatedButton.styleFrom(
                                   side: BorderSide.none,
