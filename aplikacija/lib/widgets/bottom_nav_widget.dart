@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:quiz_city_rmas/screens/add_question_screen.dart';
 import '../dashboard/profile/profile_screen.dart';
 import '../repository/authentication_repository/authentication_repository.dart';
 import '../screens/google_maps_screen.dart';
@@ -22,6 +23,8 @@ class GlobalBottomNavWidget extends StatelessWidget {
   const GlobalBottomNavWidget({
     super.key,
   });
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +79,7 @@ class GlobalBottomNavWidget extends StatelessWidget {
         ],
       ),
     );
+
   }
 }
 
@@ -88,7 +92,7 @@ class MapBottomNavWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      height: 200,
+      height: 270,
       color: Colors.transparent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -105,6 +109,21 @@ class MapBottomNavWidget extends StatelessWidget {
                 Get.back();
               },
               icon: Icon(FontAwesomeIcons.arrowLeftLong),
+            ),
+          ),
+          SizedBox(height: 10,),
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100),
+              color: Colors.white.withOpacity(0.6),
+            ),
+            child: IconButton(
+              onPressed: () {
+                Get.to(()=>AddQuestionScreen());
+              },
+              icon: Icon(Icons.add_rounded),
             ),
           ),
           SizedBox(height: 10,),
@@ -142,3 +161,4 @@ class MapBottomNavWidget extends StatelessWidget {
     );
   }
 }
+
