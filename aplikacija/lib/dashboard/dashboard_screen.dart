@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quiz_city_rmas/controllers/profile_controller.dart';
 import 'package:get/get.dart';
 import 'package:quiz_city_rmas/repository/question_repository/question_repository.dart';
+import 'package:quiz_city_rmas/screens/leaderboards_screen.dart';
 import '../authentication/models/user_model.dart';
 import '../widgets/bottom_nav_widget.dart';
 import 'package:location/location.dart' as loc;
@@ -43,6 +45,7 @@ class _DashboardTestState extends State<DashboardTest> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: Icon(FontAwesomeIcons.house),
           centerTitle: true,
           title: Text('Quiz City'),
         ),
@@ -75,20 +78,20 @@ class _DashboardTestState extends State<DashboardTest> {
                               children: [
                                 Text.rich(TextSpan(
                                     text: '# Answered Questions: ',
-                                    children: [TextSpan(text: 'TODO')])),
+                                    children: [TextSpan(text: '${initUserData.numOfAnsweredQuestions}')])),
                                 Text.rich(TextSpan(
                                     text: '# Points: ',
-                                    children: [TextSpan(text: 'TODO')])),
+                                    children: [TextSpan(text: '${initUserData.numOfPoints}')])),
                                 Text.rich(TextSpan(
                                     text: '# Posted Questions: ',
-                                    children: [TextSpan(text: 'TODO')])),
+                                    children: [TextSpan(text: '${initUserData.numOfPostedQuestions}')])),
                               ],
                             ),
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  //TODO: go to leaderboards page
+                                  Get.to(()=>LeaderboardsScreen());
                                 },
                                 child: Text('LEADERBOARDS'),
                               ),

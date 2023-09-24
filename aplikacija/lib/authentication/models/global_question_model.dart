@@ -5,9 +5,11 @@ import 'package:quiz_city_rmas/authentication/models/question_model.dart';
 class GlobalQuestionModel extends QuestionModel {
   final double tappedLat;
   final double tappedLng;
+  final String? id;
 
   GlobalQuestionModel(
-      {required this.tappedLat,
+      {this.id,
+      required this.tappedLat,
       required this.tappedLng,
       required super.theQuestion,
       required super.answerA,
@@ -18,8 +20,8 @@ class GlobalQuestionModel extends QuestionModel {
 
   toJson() {
     return {
-      "TappedLat" : tappedLat,
-      "TappedLng" : tappedLng,
+      "TappedLat": tappedLat,
+      "TappedLng": tappedLng,
       "TheQuestion": theQuestion,
       "AnswerA": answerA,
       "AnswerB": answerB,
@@ -34,6 +36,7 @@ class GlobalQuestionModel extends QuestionModel {
     final data = document.data()!;
 
     return GlobalQuestionModel(
+        id: document.id,
         theQuestion: data["TheQuestion"],
         answerA: data["AnswerA"],
         answerB: data["AnswerB"],
@@ -41,7 +44,6 @@ class GlobalQuestionModel extends QuestionModel {
         answerD: data["AnswerD"],
         correctAnswer: data["CorrectAnswer"],
         tappedLat: data["TappedLat"],
-        tappedLng: data["TappedLng"]
-    );
+        tappedLng: data["TappedLng"]);
   }
 }

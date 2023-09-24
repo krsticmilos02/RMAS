@@ -8,6 +8,9 @@ class UserModel {
   final String? password;
   final String? phoneNo;
   final String? profilePic;
+  final int numOfAnsweredQuestions;
+  final int numOfPoints;
+  final int numOfPostedQuestions;
 
   const UserModel({this.id,
     required this.email,
@@ -15,7 +18,10 @@ class UserModel {
     required this.fullName,
     required this.password,
     required this.phoneNo,
-    required this.profilePic});
+    required this.profilePic,
+    this.numOfAnsweredQuestions = 0,
+    this.numOfPoints = 0,
+    this.numOfPostedQuestions = 0,});
 
   toJson() {
     return {
@@ -25,6 +31,10 @@ class UserModel {
       "Password": password,
       "PhoneNo": phoneNo,
       "ProfilePic": profilePic,
+      "NumOfAnsweredQuestions": numOfAnsweredQuestions,
+      "NumOfPoints": numOfPoints,
+      "NumOfPostedQuestions": numOfPostedQuestions,
+
     };
   }
 
@@ -39,6 +49,9 @@ class UserModel {
     password: data["Password"],
     phoneNo: data["PhoneNo"],
     profilePic: data["ProfilePic"],
+    numOfAnsweredQuestions: data["NumOfAnsweredQuestions"],
+    numOfPoints: data["NumOfPoints"],
+    numOfPostedQuestions: data["NumOfPostedQuestions"],
 
     );
   }

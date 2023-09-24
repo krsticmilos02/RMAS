@@ -15,7 +15,7 @@ class BottomNavWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isMap ? MapBottomNavWidget() : GlobalBottomNavWidget();
+    return GlobalBottomNavWidget();
   }
 }
 
@@ -92,7 +92,7 @@ class MapBottomNavWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      height: 270,
+      height: 200,
       color: Colors.transparent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -138,22 +138,7 @@ class MapBottomNavWidget extends StatelessWidget {
               onPressed: () {
                 Get.to(ProfileScreen());
               },
-              icon: Icon(FontAwesomeIcons.userPen),
-            ),
-          ),
-          SizedBox(height: 10,),
-          Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100),
-              color: Colors.white.withOpacity(0.6),
-            ),
-            child: IconButton(
-              onPressed: () {
-                AuthenticationRepository.instance.logout();
-              },
-              icon: Icon(FontAwesomeIcons.arrowRightFromBracket),
+              icon: Icon(FontAwesomeIcons.locationCrosshairs),
             ),
           ),
         ],

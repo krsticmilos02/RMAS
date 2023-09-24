@@ -3,6 +3,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:get/get.dart';
 import 'package:quiz_city_rmas/screens/my_questions_screen.dart';
 
+import 'add_existing_or_new_screen.dart';
+
 class DialogPopup extends StatelessWidget {
   late LatLng tappedPosition;
 
@@ -12,33 +14,39 @@ class DialogPopup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Would you like to set the question here?"),
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: (){
-                      Get.to(()=>MyQuestionsScreen(tappedPosition: tappedPosition));
-                    },
-                    child: Text('YES'),
+        child: Container(
+          padding: EdgeInsets.all(15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Would you like to add a question to your current location?", textAlign: TextAlign.center, style: TextStyle(fontSize: 20),),
+              Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: (){
+                        //Get.to(()=>MyQuestionsScreen(tappedPosition: tappedPosition));
+                        Get.to(() => AddNewOrExistingScreen(tappedPosition: tappedPosition,));
+                      },
+                      child: Text('YES'),
+                    ),
                   ),
-                ),
-                SizedBox(width: 10,),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: (){
-                      Get.back();
-                    },
-                    child: Text('NO'),
+                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: (){
+                        Get.back();
+                      },
+                      child: Text('NO'),
+                    ),
                   ),
-                ),
 
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

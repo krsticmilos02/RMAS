@@ -14,14 +14,14 @@ class QuestionRepo extends GetxController {
   final firebaseUser = FirebaseAuth.instance.currentUser;
   late var retrievedUserId;
   late var questionList;
-
+  late var userData; //TODO ispravi ako se pojebe nesto
 
 
   findUser() async{
     final snapshot =
         await _db.collection("Users").where("Email", isEqualTo: firebaseUser?.email).get();
 
-    final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).single;
+    userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).single;
 
     retrievedUserId = userData.id;
 
@@ -45,6 +45,8 @@ class QuestionRepo extends GetxController {
           colorText: Colors.red);
     });
   }
+
+  UserModel get user => userData;
 
   Future<List<QuestionModel>> getAllMyQuestions() async{
     await findUser();
