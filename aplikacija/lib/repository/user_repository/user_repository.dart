@@ -10,6 +10,7 @@ class UserRepository extends GetxController {
 
   final _db = FirebaseFirestore.instance;
   final firebaseUser = FirebaseAuth.instance.currentUser;
+  late var retrievedUserId;
 
   createUser(UserModel user) async {
     await _db
@@ -34,11 +35,25 @@ class UserRepository extends GetxController {
         await _db.collection("Users").where("Email", isEqualTo: email).get();
 
     final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).single;
-    
+
+    retrievedUserId = userData.id;
+
     print(userData.id);
 
     return userData;
   }
+
+  Future<List<UserModel>> getAllUsers(String orderBy) async{
+
+    final snapshot = await _db.collection("Users").orderBy("${orderBy}", descending: true).get();
+
+    snapshot.docs.length = 1;
+
+    final listOfUsers = snapshot.docs.map((e)=> UserModel.fromSnapshot(e)).toList();
+
+    return listOfUsers;
+  }
+
 
   Future<void> updateUser(UserModel user) async {
     await _db

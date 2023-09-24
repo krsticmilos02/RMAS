@@ -13,13 +13,15 @@ dependencies:
   cloud_firestore: ^4.8.4
   firebase_auth: ^4.7.2
   get: ^4.6.5
-  image_picker: ^1.0.2
+  image_picker: ^1.0.4
   google_maps_flutter: ^2.4.0
   geolocator: ^9.0.2
   font_awesome_flutter: ^10.5.0
   geocoding: ^2.1.0
   location: ^5.0.3
   permission_handler: ^10.4.5
+  email_validator: ^2.1.17
+  firebase_storage: ^11.2.6
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class QuestionModel {
+  final String? id;
   final String? theQuestion;
   final String? answerA;
   final String? answerB;
@@ -11,6 +12,7 @@ class QuestionModel {
   final String? correctAnswer;
 
   const QuestionModel({
+    this.id,
     required this.theQuestion,
     required this.answerA,
     required this.answerB,
@@ -35,6 +37,7 @@ class QuestionModel {
     final data = document.data()!;
 
     return QuestionModel(
+        id: document.id,
         theQuestion: data["TheQuestion"],
         answerA: data["AnswerA"],
         answerB: data["AnswerB"],

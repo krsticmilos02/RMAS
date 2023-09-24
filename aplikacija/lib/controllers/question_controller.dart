@@ -14,8 +14,6 @@ class QuestionController extends GetxController {
 
   final questionRepo = Get.put(QuestionRepo());
 
-  //uradjeno TODO logika za dodavanja pitanja u firebase bazu a pitanja korisniku
-
   Future<void> addQuestion(QuestionModel question) async {
     await questionRepo.addQuestionToUser(question);
     print(question);
