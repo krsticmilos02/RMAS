@@ -220,17 +220,13 @@ leaderboard/
 
 ## 🎨 Screenshots
 
-### Recommended Screenshots to Add
-
-To showcase the app effectively for your job application, I recommend taking screenshots of:
-
-1. **Map View** - Main screen showing question markers distributed across the map
-2. **Question Interface** - A question card with 4 multiple-choice options
-3. **Leaderboard** - Rankings showing top users and their scores
-4. **Create Question Screen** - Interface for adding new questions
-5. **User Profile** - Personal stats and achievements (if implemented)
-
-**Tip**: Use an emulator with a clean, populated database for professional-looking screenshots.
+<p align="center">
+  <img src="screenshots/HomeScreenStats.jpg" width="250">
+  <img src="screenshots/LeaderboardMostPoints.jpg" width="250">
+  <img src="screenshots/MapWithQuestions.jpg" width="250">
+  <img src="screenshots/QuestionCreation.jpg" width="250">
+  <img src="screenshots/AnsweringQuestion.jpg" width="250">
+</p>
 
 ---
 
